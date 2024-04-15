@@ -1,35 +1,46 @@
 package stepdefinitions;
 
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+import net.serenitybdd.annotations.Managed;
+import net.serenitybdd.annotations.Steps;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
+import pages.Dashboard;
+import pages.Login;
+
 public class LoginStepDef
 {
+    @Managed
+    protected WebDriver driver;
+
+    @Steps
+    Login login;
+
+    @Steps
+    Dashboard dashboard;
+
     @Given("i open the browser with url")
     public void i_open_the_browser_with_url() {
+        login.open();
+    }
 
-        throw new io.cucumber.java.PendingException();
-    }
-    @Then("i should the login screen")
-    public void i_should_the_login_screen() {
-        throw new io.cucumber.java.PendingException();
-    }
     @When("i enter the username  as {string}")
-    public void i_enter_the_username_as(String string) {
-
-        throw new io.cucumber.java.PendingException();
+    public void i_enter_the_username_as(String x) {
+        login.enterUserName(x);
     }
     @When("i enter password as {string}")
-    public void i_enter_password_as(String string) {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+    public void i_enter_password_as(String x) {
+        login.enterPassword(x);
     }
     @When("i click login")
     public void i_click_login() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        login.clickSignin();
     }
     @Then("i should see admin Dashboard")
     public void i_should_see_admin_dashboard() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+        Assert.assertEquals(dashboard.validateDashboard(),"Dashboard");
     }
 
 }
