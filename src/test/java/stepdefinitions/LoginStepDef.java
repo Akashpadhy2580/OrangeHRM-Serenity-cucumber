@@ -17,9 +17,10 @@ public class LoginStepDef
 
     @Steps
     Login login;
-
-    @Steps
     Dashboard dashboard;
+
+//    @Steps
+//    Dashboard dashboard;
 
     @Given("i open the browser with url")
     public void i_open_the_browser_with_url() {
