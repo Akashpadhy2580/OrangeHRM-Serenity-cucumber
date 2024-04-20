@@ -1,4 +1,4 @@
-  @orangehrm
+  @orangehrm @Login
   Feature: Admin Login
 
     @Login_with_valid_data
@@ -20,7 +20,7 @@
 #      When i Close the Browser
 #
 #      Examples:
-#        | username | passwod    |
+#        | username | password    |
 #        | admin    | admin1234  |
 #        | Admin    | demo@125   |
 #        | admin    | admin123   |
