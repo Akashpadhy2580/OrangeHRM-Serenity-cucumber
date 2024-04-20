@@ -26,7 +26,7 @@ public class LoginStepDef
         login.open();
     }
 
-    @When("i enter the username  as {string}")
+    @When("i enter the username as {string}")
     public void i_enter_the_username_as(String x) {
         login.enterUserName(x);
     }
@@ -41,6 +41,11 @@ public class LoginStepDef
     @Then("i should see admin Dashboard")
     public void i_should_see_admin_dashboard() {
         Assert.assertEquals(dashboard.validateDashboard(),"Dashboard");
+    }
+
+    @Then("i should see {string} Message")
+    public void i_should_see_message(String msg) {
+       Assert.assertEquals(login.validateErrorMessage(),msg);
     }
 
 }
