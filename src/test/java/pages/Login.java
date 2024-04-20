@@ -15,6 +15,9 @@ public class Login extends PageObject {
     @FindBy(xpath = "//button[@type='submit']")
     public WebElementFacade submit;
 
+    @FindBy(xpath = "//div[@class='orangehrm-login-error']/descendant::div[contains(@class,'error')][2]/p")
+    public WebElementFacade errorMessage;
+
     public void enterUserName(String x)
     {
         userName.waitUntilPresent().sendKeys(x);
@@ -28,5 +31,8 @@ public class Login extends PageObject {
     public void clickSignin()
     {
         submit.waitUntilClickable().click();
+    }
+    public String validateErrorMessage(){
+        return errorMessage.waitUntilPresent().getText();
     }
 }
