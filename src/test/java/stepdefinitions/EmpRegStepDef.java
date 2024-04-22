@@ -10,6 +10,8 @@ import pages.Dashboard;
 import pages.Login;
 import pages.PIM;
 
+import static com.ibm.icu.impl.ValidIdentifiers.Datatype.x;
+
 public class EmpRegStepDef
 {
     @Managed
@@ -57,16 +59,14 @@ public class EmpRegStepDef
     }
     @When("i click save")
     public void i_click_save() {
-
+        pim.savebutton();
     }
     @When("i click logout")
     public void i_click_logout() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
     @When("i close browser")
     public void i_close_browser() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new io.cucumber.java.PendingException();
+
     }
 }
