@@ -53,15 +53,15 @@ public class PIM extends PageObject {
         checkbox.click();
     }
 
-    public void enterUsername() {
+    public void enterUsername(String x) {
         username.sendKeys(x);
     }
 
-    public void enterPassword() {
+    public void enterPassword(String x) {
         password.sendKeys(x);
     }
 
-    public void enterconfirmPassword() {
+    public void enterconfirmPassword(String x) {
         password.sendKeys(x);
     }
 

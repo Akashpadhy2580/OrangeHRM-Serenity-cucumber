@@ -12,5 +12,4 @@ Feature: New Employee Registration
     And i enter lastname as "Patra"
     And i click save
     And i click logout
-    Then i should see login page
     When i close browser

@@ -49,12 +49,12 @@ public class EmpRegStepDef
         pim.Add_newEmp();
     }
     @When("i enter firstname as {string}")
-    public void i_enter_firstname_as(String string) {
-        pim.enterFirstName(String x);
+    public void i_enter_firstname_as(String x) {
+        pim.enterFirstName(x);
     }
     @When("i enter lastname as {string}")
-    public void i_enter_lastname_as(String string) {
-        pim.enterLastName(String x);
+    public void i_enter_lastname_as(String x) {
+        pim.enterLastName(x);
       String Empid= pim.empid.getText();
     }
     @When("i click save")
