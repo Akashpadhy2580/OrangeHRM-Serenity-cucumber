@@ -12,7 +12,7 @@ public class PIM extends PageObject {
     @FindBy(xpath = "//input[@name='firstName']")
     public WebElementFacade firstname;
     @FindBy(xpath = "//input[@name='lastName']")
-    public WebElementFacade lastname;
+    public WebElementFacade lastName;
     @FindBy(xpath = "//input[@class='oxd-input oxd-input--active'])[2]")
     public WebElementFacade empid;
     @FindBy(xpath = "//input[@type='checkbox']")
@@ -43,7 +43,7 @@ public class PIM extends PageObject {
     }
 
     public void enterLastName(String x) {
-        lastname.waitUntilPresent().sendKeys(x);
+        lastName.waitUntilPresent().sendKeys(x);
     }
 
 //    public int getEmpId() {

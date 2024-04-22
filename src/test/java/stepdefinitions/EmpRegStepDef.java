@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Managed;
 import net.serenitybdd.annotations.Steps;
+import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.WebDriver;
 import pages.Dashboard;
 import pages.Login;
@@ -12,7 +13,7 @@ import pages.PIM;
 
 import static com.ibm.icu.impl.ValidIdentifiers.Datatype.x;
 
-public class EmpRegStepDef
+public class EmpRegStepDef extends PageObject
 {
     @Managed
     protected WebDriver driver;
@@ -32,17 +33,17 @@ public class EmpRegStepDef
     }
 
     @When("i enter username as {string}")
-    public void i_enter_username_as(String string) {
+    public void i_enter_username_as(String x) {
         login.enterUserName("Admin");
     }
-    @When("i enter password as {string}")
-    public void i_enter_password_as(String string) {
-        login.enterPassword("admin123");
-    }
-    @When("i click login")
-    public void i_click_login() {
-        login.clickSignin();
-    }
+//    @When("i enter password as {string}")
+//    public void i_enter_password_as(String x) {
+//        login.enterPassword("admin123");
+//    }
+//    @When("i click login ")
+//    public void i_click_login() {
+//        login.clickSignin();
+//    }
     @When("i goto add employee page")
     public void i_goto_add_employee_page() {
         pim.PIM();
@@ -56,6 +57,7 @@ public class EmpRegStepDef
     public void i_enter_lastname_as(String x) {
         pim.enterLastName(x);
       String Empid= pim.empid.getText();
+        pim.setCheckbox();
     }
     @When("i click save")
     public void i_click_save() {
