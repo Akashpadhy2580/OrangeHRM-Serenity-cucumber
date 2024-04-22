@@ -18,6 +18,6 @@
       Then i should see "Invalid credentials" Message
 
       Examples:
-        | username | password    |
+        | username | password   |
         | admin    | admin1234  |
         | Admin    | demo@125   |
