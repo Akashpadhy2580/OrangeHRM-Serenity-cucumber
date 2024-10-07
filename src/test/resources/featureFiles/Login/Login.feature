@@ -1,20 +1,11 @@
-<<<<<<< HEAD
 @orangehrm @regression @login
-=======
-
-@orangehrm @login
->>>>>>> fe8ba81 (Initial Commit)
 Feature: Login and Logout Feature
 
   Background:
     Given I am on the OrangeHRM login page
 #######################################################################################################################################################################################################
 
-<<<<<<< HEAD
   @smoke
-=======
-  @test
->>>>>>> fe8ba81 (Initial Commit)
   Scenario: Validating if all the elements in the Login Page are present correctly
     Then I should see the Login Header in the Login Page
     And I should see the Username and Password Headers
