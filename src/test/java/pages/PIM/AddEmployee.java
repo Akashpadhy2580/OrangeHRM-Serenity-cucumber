@@ -1,5 +1,6 @@
 package pages.PIM;
 
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -59,11 +60,13 @@ public class AddEmployee extends PageObject {
         Assert.assertTrue("Add Employee Nav button is not clickable",addEmployeeNavButton.waitUntilClickable().isClickable());
     }
 
+    @Step
     public void clickOnAddEmployeeNavButton() {
         validate_Add_Employee_Nav_Button();
         clickOn(addEmployeeNavButton);
     }
 
+    @Step
     public void validate_Add_Employee_Title_Page_Header() {
         Assert.assertEquals("Validated Add Employee Heading is failed","Add Employee",addEmployeeHeader.waitUntilVisible().getText());
     }
@@ -73,6 +76,7 @@ public class AddEmployee extends PageObject {
 
     }
 
+    @Step
     public void enterFirstName(String firstName) {
         validate_First_Name_Input_Box_Is_Present();
         firstNameInputBox.waitUntilPresent().sendKeys(firstName);
@@ -82,6 +86,7 @@ public class AddEmployee extends PageObject {
         Assert.assertTrue( "Middle Name Input Box is not visible",middleNameInputBox.isVisible());
     }
 
+    @Step
     public void enterMiddleName(String middleName) {
         validate_Middle_Name_Input_Box_Is_Present();
         middleNameInputBox.waitUntilPresent().sendKeys(middleName);
@@ -91,6 +96,7 @@ public class AddEmployee extends PageObject {
         Assert.assertTrue( "Last Name Input Box is not visible",lastNameInputBox.isVisible());
     }
 
+    @Step
     public void enterLastName(String lastName) {
         validate_Last_Name_Input_Box_Is_Present();
         lastNameInputBox.waitUntilPresent().sendKeys(lastName);
@@ -105,18 +111,21 @@ public class AddEmployee extends PageObject {
         Assert.assertTrue( "Work Email Input Box is not visible",employeeIdInputBox.isVisible());
     }
 
+    @Step
     public void enterEmployeeID(String employeeId) {
         validate_Employee_ID_Input_Box_Is_Present();
         employeeIdInputBox.clear();
         employeeIdInputBox.waitUntilPresent().sendKeys(employeeId);
     }
 
+    @Step
     public void turnOnLoginDetailsCheckbox() {
         Assert.assertTrue( "Create Login Details Checkbox is not enabled",createLoginDetailsCheckbox.isEnabled());
         clickOn(createLoginDetailsCheckbox);
         //clickElement(addEmployeeLocators.createLoginDetailsCheckbox, "Create Login Details Checkbox is on", true, 30);
     }
 
+    @Step
     public void enterUsername(String username) {
         usernameInputBox.waitUntilPresent().sendKeys(username);
     }
@@ -131,22 +140,25 @@ public class AddEmployee extends PageObject {
 //        }
 //    }
 
+    @Step
     public void enterPassword(String password) {
         passwordInputBox.waitUntilPresent().sendKeys(password);
     }
 
+    @Step
     public void enterConfirmPassword(String confirmPassword) {
         confirmPasswordInputBox.waitUntilPresent().sendKeys(confirmPassword);
     }
 
+    @Step
     public void clickOnSaveButton() {
         addEmployeeSaveButton.waitUntilClickable().click();
     }
 
+    @Step
     public void clickOnCancelButton() {
         addEmployeeCancelButton.waitUntilClickable();
         clickOn(addEmployeeCancelButton);
     }
-
 
 }

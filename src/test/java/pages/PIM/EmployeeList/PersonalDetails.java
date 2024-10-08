@@ -1,5 +1,6 @@
 package pages.PIM.EmployeeList;
 
+import net.serenitybdd.annotations.Step;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -130,6 +131,7 @@ public class PersonalDetails extends PageObject {
         Assert.assertTrue("navigate to Personal Details Page is failed",personalDetailsHeader.isVisible());
     }
 
+    @Step
     public void validate_All_Headers_And_Input_Boxes_In_Personal_Details_Page() {
         Map<WebElementFacade, String> inputHeaders = new HashMap<>();
         inputHeaders.put(employeeFullNameText, "Employee Full Name");
@@ -177,6 +179,7 @@ public class PersonalDetails extends PageObject {
         }
     }
 
+    @Step
     public void validate_Name_Of_User_Is_Shown_Correctly() {
         String nameofUser = nameOfUser.getText();
         String firstName =firstNameInputBox.getText();
@@ -186,38 +189,46 @@ public class PersonalDetails extends PageObject {
         Assert.assertEquals("Name of the user is not shown correctly in the Personal details page",nameofUser,fullName);
     }
 
+    @Step
     public void enterEmployeeFullName(String firstName, String middleName, String lastName) {
         firstNameInputBox.waitUntilPresent().sendKeys(firstName);
         middleNameInputBox.waitUntilPresent().sendKeys(middleName);
         lastNameInputBox.waitUntilPresent().sendKeys(lastName);
     }
 
+    @Step
     public void enterEmployeeId(String employeeId) {
         employeeIdInputBox.waitUntilPresent().sendKeys(employeeId);
     }
 
+    @Step
     public void enterOtherID(String otherId) {
         otherIdInputBox.waitUntilPresent().sendKeys(otherId);
     }
 
+    @Step
     public void enterDriverLicenseNumber(String licenseNumber) {
         driverLicenseNumberInputBox.waitUntilPresent().sendKeys(licenseNumber);
     }
 
+    @Step
     public void enterLicenseExpiryDate(String licenseExpiryDate) {
         licenseExpiryDateInputBox.waitUntilPresent().sendKeys(licenseExpiryDate);
     }
 
+    @Step
     public void select_Nationality_Option_From_Dropdown(String nationality) {
         nationalityDropdown.waitUntilClickable().click();
         clickOn(nationalityDropdown.findElement(By.xpath("parent::div/following-sibling::div/div/span[text()='"+nationality+"']")));
     }
 
+    @Step
     public void select_Marital_Status_From_Dropdown(String maritalStatus) {
         maritalStatusDropdown.waitUntilClickable().click();
         clickOn(maritalStatusDropdown.findElement(By.xpath("parent::div/following-sibling::div/div/span[text()='"+maritalStatus+"']")));
     }
 
+    @Step
     public void selectGender(String gender) {
         if(gender.equalsIgnoreCase("Male")) {
             maleRadioButton.waitUntilClickable().click();
@@ -226,18 +237,22 @@ public class PersonalDetails extends PageObject {
         }
     }
 
+    @Step
     public void clickOnSaveButton() {
         saveButton.waitUntilClickable().click();
     }
 
+    @Step
     public void clickOnCancelButton() {
         cancelButton.waitUntilClickable().click();
     }
 
+    @Step
     public void clickOnAddAttachmentButton() {
         attachmentsAddButton.waitUntilClickable().click();
     }
 
+    @Step
     public void enterComment(String comment) {
         commentBox.waitUntilPresent().sendKeys(comment);
     }
