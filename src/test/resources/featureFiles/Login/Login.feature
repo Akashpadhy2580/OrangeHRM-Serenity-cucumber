@@ -1,5 +1,5 @@
-@orangehrm @regression @login
-Feature: Login and Logout Feature
+@orangehrm @login @regression
+Feature: Login Feature
 
   Background:
     Given I am on the OrangeHRM login page

@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(features = "src/test/resources/featureFiles",
                 glue = "stepdefinitions",
                 plugin = {"pretty","html:target/Reports/Cucumber-Report.html"},
-                tags = "@orangehrm")
+                tags = "@login")
 
 public class TestRunner {
 }
