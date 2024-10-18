@@ -12,6 +12,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    services:
+      xvfb:
+        image: docker.io/selenium/standalone-chrome:latest
+        options: >-
+          --shm-size 2g
+          --name xvfb
+          --label testing
+    
     steps:
     # Checkout the repository
     - name: Checkout Repository
@@ -34,22 +42,22 @@ jobs:
           ${{ runner.os }}-maven-
 
     # Install Google Chrome
-    - name: Install Chrome
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
+    # - name: Install Chrome
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install -y google-chrome-stable
 
-    # Install ChromeDriver
-    - name: Install ChromeDriver
-      run: |
-        CHROME_VERSION=$(google-chrome --version)
-        echo "Chrome Version: $CHROME_VERSION"
-        CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
-        echo "ChromeDriver Version: $CHROME_DRIVER_VERSION"
-        curl -sS -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip"
-        unzip /tmp/chromedriver.zip -d /usr/local/bin/
-        rm /tmp/chromedriver.zip
-        sudo chmod +x /usr/local/bin/chromedriver
+    # # Install ChromeDriver
+    # - name: Install ChromeDriver
+    #   run: |
+    #     CHROME_VERSION=$(google-chrome --version)
+    #     echo "Chrome Version: $CHROME_VERSION"
+    #     CHROME_DRIVER_VERSION=$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION)
+    #     echo "ChromeDriver Version: $CHROME_DRIVER_VERSION"
+    #     curl -sS -o /tmp/chromedriver.zip "https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip"
+    #     unzip /tmp/chromedriver.zip -d /usr/local/bin/
+    #     rm /tmp/chromedriver.zip
+    #     sudo chmod +x /usr/local/bin/chromedriver
 
     # Install Maven dependencies
     - name: Install Maven Dependencies
@@ -57,7 +65,7 @@ jobs:
 
     # Run Tests with Maven (Serenity and Cucumber)
     - name: Run Tests
-      run: mvn clean verify -Dwebdriver.chrome.driver=chromedriver
+      run: mvn clean verify
 
     # Publish Serenity Reports as an Artifact
     - name: Upload Serenity Reports
