@@ -33,10 +33,6 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-maven-
 
-    # Install Maven dependencies
-    - name: Install Maven Dependencies
-      run: mvn install --no-transfer-progress --quiet
-
     # Install Google Chrome
     - name: Install Chrome
       run: |
@@ -54,6 +50,10 @@ jobs:
         unzip /tmp/chromedriver.zip -d /usr/local/bin/
         rm /tmp/chromedriver.zip
         sudo chmod +x /usr/local/bin/chromedriver
+
+    # Install Maven dependencies
+    - name: Install Maven Dependencies
+      run: mvn install --no-transfer-progress --quiet
 
     # Run Tests with Maven (Serenity and Cucumber)
     - name: Run Tests
