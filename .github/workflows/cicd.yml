@@ -27,8 +27,22 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
-    - name: Build and Test with Maven
-      run: mvn clean verify
+        
+    # Cache Maven dependencies to speed up build
+    - name: Cache Maven packages
+      uses: actions/cache@v3
+      with:
+        path: ~/.m2/repository
+        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          ${{ runner.os }}-maven-
+
+    # Install Maven dependencies
+    - name: Install Maven Dependencies
+      run: mvn install --no-transfer-progress --quiet
+      
+    - name: Run Tests
+      run: mvn clean verify -Denvironments=chrome
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
     # - name: Update dependency graph
